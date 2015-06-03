@@ -2,7 +2,10 @@
     "name": "devgroup/yii2-tag-dependency-helper",
     "description": "Helper for unifying cache tag names with invalidation support in yii2",
     "type": "yii2-extension",
-    "keywords": ["yii2","cache"],
+    "keywords": [
+        "yii2",
+        "cache"
+    ],
     "license": "MIT",
     "authors": [
         {
@@ -18,9 +21,12 @@
             "email": "fps.06@mail.ru"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
         "yiisoft/yii2": "~2.0.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.6.9"
     },
     "autoload": {
         "psr-4": {

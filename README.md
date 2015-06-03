@@ -14,18 +14,29 @@ In your model add behavior:
 
 
 ``` php
+...
 
-/**
- * @inheritdoc
- */
-public function behaviors()
+use devgroup\TagDependencyHelper\Traits\CachedFind;
+use devgroup\TagDependencyHelper\InvalidateTagBehavior;
+
+...
+
+class Configurable extends ActiveRecord
 {
-    return [
-        [
-            'class' => \devgroup\TagDependencyHelper\ActiveRecordHelper::className(),
-            'cache' => 'cache', // optional option - application id of cache component
-        ],
-    ];
+    use CachedFind;
+    
+    /**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => InvalidateTagBehavior::class,
+                'cache' => 'cache', // optional option - application id of cache component
+            ],
+        ];
+    }
 }
 
 ```
@@ -35,13 +46,17 @@ This behavior automatically invalidates tags by model name and pair model-id.
 If your cache entry should be flushed every time any row of model is edited - use `getCommonTag` helper function:
 
 ``` php
+use devgroup\TagDependencyHelper\ActiveRecordCacheTags;
+
+...
+
 $models = Configurable::getDb()->cache(
     function ($db) {
         return Configurable::find()->all($db);
     },
     86400,
     new TagDependency([
-        'tags' => ActiveRecordHelper::getCommonTag(Configurable::className()),
+        'tags' => [ActiveRecordCacheTags::getCommonTag(Configurable::className())],
     ])
 );
 ```
@@ -49,9 +64,14 @@ $models = Configurable::getDb()->cache(
 If your cache entry should be flushed only when exact row of model is edited - use `getObjectTag` helper function:
 
 ``` php
+use devgroup\TagDependencyHelper\ActiveRecordCacheTags;
+
+...
+
 $cacheKey = 'Product:' . $model_id;
 if (false === $product = Yii::$app->cache->get($cacheKey)) {
-    if (null === $product = Product::findById($model_id)) {
+    
+    if (null === $product = Product::findOne($model_id)) {
         throw new NotFoundHttpException;
     }
     Yii::$app->cache->set(
@@ -61,7 +81,7 @@ if (false === $product = Yii::$app->cache->get($cacheKey)) {
         new TagDependency(
             [
                 'tags' => [
-                    ActiveRecordHelper::getObjectTag(Product::className(), $model_id),
+                    ActiveRecordCacheTags::getObjectTag(Product::class, $model_id),
                 ]
             ]
         )
@@ -69,3 +89,5 @@ if (false === $product = Yii::$app->cache->get($cacheKey)) {
 }
 
 ```
+
+In the CachedFind trait implemented shortcut method cachedFindOne() and cachedFindAll() for cached find query.
