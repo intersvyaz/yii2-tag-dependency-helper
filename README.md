@@ -1,9 +1,8 @@
 yii2-tag-dependency-helper
 ==========================
-[![Code Climate](https://codeclimate.com/github/DevGroup-ru/yii2-tag-dependency-helper/badges/gpa.svg)](https://codeclimate.com/github/DevGroup-ru/yii2-tag-dependency-helper)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/DevGroup-ru/yii2-tag-dependency-helper/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/DevGroup-ru/yii2-tag-dependency-helper/?branch=master)
-[![Build Status](https://scrutinizer-ci.com/g/DevGroup-ru/yii2-tag-dependency-helper/badges/build.png?b=master)](https://scrutinizer-ci.com/g/DevGroup-ru/yii2-tag-dependency-helper/build-status/master)
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/DevGroup-ru/yii2-tag-dependency-helper/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/intersvyaz/yii2-tag-dependency-helper/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/intersvyaz/yii2-tag-dependency-helper/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/intersvyaz/yii2-tag-dependency-helper/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/intersvyaz/yii2-tag-dependency-helper/?branch=master)
+[![Build Status](https://travis-ci.org/intersvyaz/yii2-tag-dependency-helper.svg)](https://travis-ci.org/intersvyaz/yii2-tag-dependency-helper)
 
 Helper for unifying cache tag names with invalidation support for Yii2.
 
@@ -16,8 +15,8 @@ In your model add behavior:
 ``` php
 ...
 
-use devgroup\TagDependencyHelper\Traits\CachedFind;
-use devgroup\TagDependencyHelper\InvalidateTagBehavior;
+use Intersvyaz\TagDependencyHelper\Traits\CachedFind;
+use Intersvyaz\TagDependencyHelper\InvalidateTagBehavior;
 
 ...
 
@@ -46,7 +45,7 @@ This behavior automatically invalidates tags by model name and pair model-id.
 If your cache entry should be flushed every time any row of model is edited - use `getCommonTag` helper function:
 
 ``` php
-use devgroup\TagDependencyHelper\ActiveRecordCacheTags;
+use Intersvyaz\TagDependencyHelper\ActiveRecordCacheTags;
 
 ...
 
@@ -64,7 +63,7 @@ $models = Configurable::getDb()->cache(
 If your cache entry should be flushed only when exact row of model is edited - use `getObjectTag` helper function:
 
 ``` php
-use devgroup\TagDependencyHelper\ActiveRecordCacheTags;
+use Intersvyaz\TagDependencyHelper\ActiveRecordCacheTags;
 
 ...
 
