@@ -1,5 +1,5 @@
 <?php
-namespace devgroup\TagDependencyHelper\Tests;
+namespace Intersvyaz\TagDependencyHelper\Tests;
 
 use Yii;
 use yii\console\Application;

@@ -1,5 +1,5 @@
 {
-    "name": "devgroup/yii2-tag-dependency-helper",
+    "name": "intersvyaz/yii2-tag-dependency-helper",
     "description": "Helper for unifying cache tag names with invalidation support in yii2",
     "type": "yii2-extension",
     "keywords": [
@@ -19,6 +19,10 @@
         {
             "name": "Pavel Fedotov",
             "email": "fps.06@mail.ru"
+        },
+        {
+            "name": "Ivan Bagaev",
+            "email": "gmiramir@gmail.com"
         }
     ],
     "minimum-stability": "stable",
@@ -30,7 +34,7 @@
     },
     "autoload": {
         "psr-4": {
-            "devgroup\\TagDependencyHelper\\": ""
+            "Intersvyaz\\TagDependencyHelper\\": ""
         }
     }
 }

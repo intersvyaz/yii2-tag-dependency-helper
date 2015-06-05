@@ -1,10 +1,10 @@
 <?php
-namespace devgroup\TagDependencyHelper\Tests\Unit;
+namespace Intersvyaz\TagDependencyHelper\Tests\Unit;
 
 
-use devgroup\TagDependencyHelper\ActiveRecordCacheTags;
-use devgroup\TagDependencyHelper\Tests\Fakes\Table;
-use devgroup\TagDependencyHelper\Tests\TestCase;
+use Intersvyaz\TagDependencyHelper\ActiveRecordCacheTags;
+use Intersvyaz\TagDependencyHelper\Tests\Fakes\Table;
+use Intersvyaz\TagDependencyHelper\Tests\TestCase;
 use Yii;
 use yii\caching\TagDependency;
 

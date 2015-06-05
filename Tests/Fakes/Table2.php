@@ -1,8 +1,8 @@
 <?php
-namespace devgroup\TagDependencyHelper\Tests\Fakes;
+namespace Intersvyaz\TagDependencyHelper\Tests\Fakes;
 
-use devgroup\TagDependencyHelper\InvalidateTagBehavior;
-use devgroup\TagDependencyHelper\Traits\CachedFind;
+use Intersvyaz\TagDependencyHelper\InvalidateTagBehavior;
+use Intersvyaz\TagDependencyHelper\Traits\CachedFind;
 use yii\db\ActiveRecord;
 
 class Table2 extends ActiveRecord

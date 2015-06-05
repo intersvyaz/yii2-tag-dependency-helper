@@ -1,7 +1,7 @@
 <?php
-namespace devgroup\TagDependencyHelper\Traits;
+namespace Intersvyaz\TagDependencyHelper\Traits;
 
-use devgroup\TagDependencyHelper\ActiveRecordCacheTags;
+use Intersvyaz\TagDependencyHelper\ActiveRecordCacheTags;
 use Yii;
 use yii\caching\TagDependency;
 

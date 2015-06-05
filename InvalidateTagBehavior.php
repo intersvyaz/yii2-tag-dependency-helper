@@ -1,6 +1,6 @@
 <?php
 
-namespace devgroup\TagDependencyHelper;
+namespace Intersvyaz\TagDependencyHelper;
 
 use Yii;
 use yii\base\Behavior;

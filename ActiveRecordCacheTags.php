@@ -1,5 +1,5 @@
 <?php
-namespace devgroup\TagDependencyHelper;
+namespace Intersvyaz\TagDependencyHelper;
 
 use yii\base\InvalidParamException;
 use yii\db\ActiveRecord;
